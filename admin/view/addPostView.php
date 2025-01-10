@@ -1,0 +1,1 @@
+<h1>add post view</h1>

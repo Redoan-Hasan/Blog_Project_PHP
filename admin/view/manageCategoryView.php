@@ -1,0 +1,1 @@
+<h1>manage Category view</h1>
