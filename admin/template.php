@@ -1,3 +1,19 @@
+<?php
+include("class/function.php");
+
+$classObj = new BlogProject();
+session_start();
+$adminId = $_SESSION["adminId"];
+if($adminId === null){
+    header("location: index.php");
+}
+    if(isset($_GET["adminLogout"])){
+        if($_GET["adminLogout"] == "logout"){
+            $classObj->admin_logout();
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <?php include_once("../admin/includes/adminTemplateHead.php") ?>
@@ -12,13 +28,13 @@
                     <?php if (isset($view)) {
                         if ($view === "dashboard") {
                             include("../admin/view/dashboardView.php");
-                        }else if($view === "addPost"){
+                        } else if ($view === "addPost") {
                             include("../admin/view/addPostView.php");
-                        }else if($view === "managePost"){
+                        } else if ($view === "managePost") {
                             include("../admin/view/managePostView.php");
-                        }else if($view === "addCategory"){
+                        } else if ($view === "addCategory") {
                             include("../admin/view/addCategoryView.php");
-                        }else if($view === "manageCategory"){
+                        } else if ($view === "manageCategory") {
                             include("../admin/view/manageCategoryView.php");
                         }
                     } ?>
