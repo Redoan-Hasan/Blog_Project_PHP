@@ -36,6 +36,8 @@ if($adminId === null){
                             include("../admin/view/addCategoryView.php");
                         } else if ($view === "manageCategory") {
                             include("../admin/view/manageCategoryView.php");
+                        } else if($view === "editPost"){
+                            include("../admin/view/editPostView.php");
                         }
                     } ?>
                 </div>
