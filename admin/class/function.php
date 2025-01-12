@@ -35,6 +35,29 @@
         unset($_SESSION["adminName"]);
         header("location: index.php");
     }
+
+    public function add_category($data){
+        $category_name = $data["category_name"];
+        $category_description = $data["category_description"];
+        $query = "INSERT INTO categories(category_name, category_description) VALUES('$category_name', '$category_description')";
+        if(mysqli_query($this->connection, $query)){
+            return "success";
+        }
+    }
+
+    public function manage_category(){
+        $query = "SELECT * FROM categories";  
+        if(mysqli_query($this->connection,$query)){
+            return mysqli_query($this->connection, $query);
+        }  
+    }
+
+    public function delete_category($id){
+        $query= "DELETE FROM categories WHERE id = '$id'";
+        if(mysqli_query($this->connection, $query)){
+            return "deleted successfully";
+        }
+    }
  }    
 
 ?>
